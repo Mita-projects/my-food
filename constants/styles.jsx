@@ -19,11 +19,11 @@ export const styles = StyleSheet.create({
 
   logo: { alignItems: "center", justifyContent: "center", width: "100%" },
 
-  smallText: { color: COLORS.light.black, fontSize: 14, fontWeight: "400" },
+  smallText: { color: COLORS.light.white, fontSize: 14, fontWeight: "400" },
 
   mediumText: { fontSize: 18, fontWeight: "600", color: COLORS.light.white },
 
-  bigText: { fontSize: 24, fontWeight: "800", color: COLORS.light.black },
+  bigText: { fontSize: 24, fontWeight: "800", color: COLORS.light.white },
 
   checkBox: {
     backgroundColor: "white",
@@ -45,4 +45,32 @@ export const styles = StyleSheet.create({
     paddingBottom: 35,
     alignItems: "center",
   },
+  line: { 
+    flex: 1, 
+    height: 1, 
+    backgroundColor: "black" 
+  },
+  
+  signinImgCon: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingVertical: 20,
+  },
+
+  signinImg: {
+    height: 23,
+    width: 23,
+    position: "absolute",
+    zIndex: 1,
+    left: 30,
+  },
+  
+  signinLink: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingVertical: 30,
+  },
+
 });

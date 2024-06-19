@@ -1,136 +1,90 @@
-import {
-  View,
-  Text,
-  SafeAreaView,
-  Image,
-  Pressable,
-  TextInput,
-} from "react-native";
+import { View, Text, SafeAreaView, Pressable } from "react-native";
 import React from "react";
-import { styles } from "../constants/styles";
-import Input from "../widget/Input";
-import { COLORS } from "../constants/Colors";
-import Button from "../widget/Button";
-import LogoText from "../widget/LogoText";
-import FocusedStatusBar from "../constants/StatusBar";
-import CustomCheckbox from "../widget/Checkbox";
 import { useNavigation } from "@react-navigation/native";
+import { styles } from "../constants/styles";
+import { COLORS } from "../constants/Colors";
+import FocusedStatusBar from "../constants/StatusBar";
+import LogoText from "../widget/LogoText";
+import Input from "../widget/Input";
+import CustomCheckbox from "../widget/Checkbox";
+import Button from "../widget/Button";
 
 const SignupPage = () => {
   const navigation = useNavigation();
+
   return (
     <SafeAreaView
       style={[styles.safeArea, { backgroundColor: COLORS.light.primary }]}
     >
-      <FocusedStatusBar />
+      <FocusedStatusBar
+        backgroundColor={COLORS.light.primary}
+        barStyle={"light-content"}
+      />
 
       <View style={styles.container}>
-        <View style={styles.logoCon}>
+        <View style={{ paddingTop: 100, paddingBottom: 30 }}>
           <LogoText />
         </View>
 
-        <View style={styles.regCon}>
-          <Text style={styles.mediumText}>Email</Text>
-          <View style={{ textColor: "black" }}>
-            <Input backgroundColor={COLORS.light.white} />
-          </View>
+        <View>
+          <Text style={styles.mediumText}>Create Account</Text>
+          <Text style={styles.smallText}>Sign up to continue</Text>
         </View>
-        <View style={styles.regCon}>
-          <Text style={styles.mediumText}>Password</Text>
 
+        <View style={{ paddingTop: 20, paddingBottom: 10 }}>
+          <Text style={styles.smallText}>Email</Text>
           <Input backgroundColor={COLORS.light.white} />
         </View>
 
-        <View style={styles.passwordCon}>
-          <View style={{flexDirection: "row"}}>
-            <CustomCheckbox />
-            <Text style={{paddingHorizontal: 5, color: "white"}}>Remember me</Text>
-          </View>
-          <Text>Forgot Password?</Text>
+        <View style={{ paddingVertical: 10 }}>
+          <Text style={styles.smallText}>Phone Number</Text>
+          <Input backgroundColor={COLORS.light.white} />
         </View>
 
-        <View style={{ paddingBottom: 30 }}>
+        <View style={{ paddingVertical: 10 }}>
+          <Text style={styles.smallText}>Password</Text>
+          <Input backgroundColor={COLORS.light.white} />
+        </View>
+
+        <View style={{ flexDirection: "row", paddingBottom: 10 }}>
+          <CustomCheckbox />
+          <Text
+            style={{ paddingLeft: 5, color: COLORS.light.white, fontSize: 13 }}
+          >
+            must not be more than 8 characters
+          </Text>
+        </View>
+
+        <View style={{ flexDirection: "row" }}>
+          <CustomCheckbox />
+          <Text
+            style={{ paddingLeft: 5, color: COLORS.light.white, fontSize: 13 }}
+          >
+            must contain numbers,letters and special characters
+          </Text>
+        </View>
+        <View style={{ paddingTop: 10 }}>
+          <Text style={styles.smallText}>
+            By registering below you agree to our terms and conditions
+          </Text>
+        </View>
+
+        <View style={{ marginTop: 30 }}>
           <Button
             buttonColor={COLORS.light.black}
             textColor={COLORS.light.white}
-            buttonText={"Sign In"}
+            buttonText={"Register"}
           />
         </View>
 
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <View style={{ flex: 1, height: 1, backgroundColor: "black" }} />
-          <View>
-            <Text style={{ width: 50, textAlign: "center" }}>or</Text>
-          </View>
-          <View style={{ flex: 1, height: 1, backgroundColor: "black" }} />
-        </View>
-
-        <View
-          style={{
-            paddingVertical: 30,
-            flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Image
-            source={require("../assets/images/google.png")}
-            style={{
-              height: 23,
-              width: 23,
-              position: "absolute",
-              zIndex: 1,
-              left: 30,
-            }}
-            resizeMode="cover"
-          />
-
-          <Button
-            buttonColor={COLORS.light.white}
-            textColor={COLORS.light.black}
-            buttonText={"Sign in with Google"}
-          />
-        </View>
-
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Image
-            source={require("../assets/images/facebook.png")}
-            style={{
-              height: 23,
-              width: 23,
-              position: "absolute",
-              zIndex: 1,
-              left: 30,
-            }}
-            resizeMode="cover"
-          />
-
-          <Button
-            buttonColor={COLORS.light.white}
-            textColor={COLORS.light.black}
-            buttonText={"Sign in with Facebook"}
-          />
-        </View>
-
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "center",
-            paddingVertical: 20,
-          }}
-        >
-          <Text style={{ color: "white" }}>Don't have an account?</Text>
-          <Pressable onPress={() => navigation.navigate("")}>
-            <Text style={{ color: "black" }}>Sign Up</Text>
+        <View style={styles.signinLink}>
+          <Text style={{ color: COLORS.light.white }}>Already a member?</Text>
+          <Pressable onPress={() => navigation.navigate("SigninPage")}>
+            <Text style={{ color: COLORS.light.black }}>Login</Text>
           </Pressable>
         </View>
+
+        
       </View>
     </SafeAreaView>
   );
