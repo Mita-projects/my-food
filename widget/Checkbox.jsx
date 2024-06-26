@@ -8,8 +8,8 @@ const CustomCheckbox = () => {
 
   return (
     <Checkbox
-      disabled={false}
       value={toggleCheckbox}
+      disabled={false}
       onValueChange={setToggleCheckBox}
       style={styles.checkBox}
       color={toggleCheckbox ? COLORS.light.success : undefined}

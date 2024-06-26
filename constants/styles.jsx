@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
 
   container: { padding: 20 },
 
-  button: { width: "100%", padding: 10, borderRadius: 16, alignItems: "center"},
+  button: { width: "100%", padding: 10, borderRadius: 16, alignItems:'center' },
   buttonText: { color: COLORS.light.white, fontSize: 16 },
 
   input: {
@@ -25,5 +25,52 @@ export const styles = StyleSheet.create({
 
   bigText: { fontSize: 24, fontWeight: "800", color: COLORS.light.white },
 
-  checkBox: { backgroundColor: "white", borderRadius: 1 },
+  checkBox: {
+    backgroundColor: "white",
+    borderRadius: 1,
+  },
+
+  logoCon: {
+    paddingTop: 100,
+    paddingBottom: 50,
+  },
+
+  regCon: {
+    paddingVertical: 10
+  },
+
+  passwordCon: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingBottom: 35,
+    alignItems: "center",
+  },
+  line: { 
+    flex: 1, 
+    height: 1, 
+    backgroundColor: "black" 
+  },
+  
+  signinImgCon: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingVertical: 20,
+  },
+
+  signinImg: {
+    height: 23,
+    width: 23,
+    position: "absolute",
+    zIndex: 1,
+    left: 30,
+  },
+  
+  signinLink: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingVertical: 30,
+  },
+
 });
