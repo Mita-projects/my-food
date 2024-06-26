@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView } from "react-native";
+import { View, Text, SafeAreaView, Pressable } from "react-native";
 import React from "react";
 import { styles } from "../constants/styles";
 import Input from "../widget/Input";
@@ -6,10 +6,16 @@ import { COLORS } from "../constants/Colors";
 import Button from "../widget/Button";
 import LogoText from "../widget/LogoText";
 import FocusedStatusBar from "../constants/StatusBar";
-import Checkbox from "../widget/Checkbox";
+import CustomCheckbox from "../widget/Checkbox";
+import { useNavigation } from "@react-navigation/native";
+import LoginPage2 from "./LoginPage2";
 
 const SignupPage = () => {
+
+  const navigation= useNavigation()
+
   return (
+    
     <SafeAreaView
       style={[styles.safeArea, { backgroundColor: COLORS.light.primary }]}
     >
@@ -27,7 +33,7 @@ const SignupPage = () => {
         <Input />
 
         <View>
-          <Checkbox />
+          <CustomCheckbox />
 
           <Text></Text>
         </View>
@@ -36,6 +42,7 @@ const SignupPage = () => {
           buttonColor={COLORS.light.black}
           textColor={COLORS.light.white}
           buttonText={"Sign In"}
+          Onpress={()=> navigation.navigate("LoginPage2") }
         />
       </View>
     </SafeAreaView>
