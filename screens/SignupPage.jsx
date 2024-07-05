@@ -74,6 +74,7 @@ const SignupPage = () => {
             buttonColor={COLORS.light.black}
             textColor={COLORS.light.white}
             buttonText={"Register"}
+            onPress={() => navigation.navigate("SigninPage")}
           />
         </View>
 

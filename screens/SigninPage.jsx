@@ -60,6 +60,7 @@ const SigninPage = () => {
             buttonColor={COLORS.light.black}
             textColor={COLORS.light.white}
             buttonText={"Sign In"}
+            onPress={() => navigation.navigate("Details")}
           />
         </View>
 
@@ -82,6 +83,7 @@ const SigninPage = () => {
             buttonColor={COLORS.light.white}
             textColor={COLORS.light.black}
             buttonText={"Sign in with Google"}
+            onPress={() => navigation.navigate("Details")}
           />
         </View>
 
@@ -90,17 +92,21 @@ const SigninPage = () => {
             source={require("../assets/images/facebook.png")}
             style={styles.signinImg}
             resizeMode="cover"
+            onPress={() => navigation.navigate("Details")}
           />
 
           <Button
             buttonColor={COLORS.light.white}
             textColor={COLORS.light.black}
             buttonText={"Sign in with Facebook"}
+            onPress={() => navigation.navigate("Details")}
           />
         </View>
 
         <View style={styles.signinLink}>
-          <Text style={{ color: COLORS.light.white }}>Don't have an account?</Text>
+          <Text style={{ color: COLORS.light.white }}>
+            Don't have an account?
+          </Text>
           <Pressable onPress={() => navigation.navigate("SignupPage")}>
             <Text style={{ color: COLORS.light.black }}>Sign Up</Text>
           </Pressable>

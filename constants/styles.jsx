@@ -4,9 +4,14 @@ import { COLORS } from "./Colors";
 export const styles = StyleSheet.create({
   safeArea: { flex: 1 },
 
-  container: { padding: 20 },
+  container: { paddingHorizontal: 20, paddingVertical: 10, },
 
-  button: { width: "100%", padding: 10, borderRadius: 16, alignItems:'center' },
+  button: {
+    width: "100%",
+    padding: 10,
+    borderRadius: 16,
+    alignItems: "center",
+  },
   buttonText: { color: COLORS.light.white, fontSize: 16 },
 
   input: {
@@ -23,7 +28,13 @@ export const styles = StyleSheet.create({
 
   mediumText: { fontSize: 18, fontWeight: "600", color: COLORS.light.white },
 
+  mediumText2: { fontSize: 18, fontWeight: "600", color: COLORS.light.black },
+
   bigText: { fontSize: 24, fontWeight: "800", color: COLORS.light.white },
+
+  bigText2: { fontSize: 24, fontWeight: "800", color: COLORS.light.primary },
+
+  bigText3: { fontSize: 24, fontWeight: "600", color: COLORS.light.black },
 
   checkBox: {
     backgroundColor: "white",
@@ -36,7 +47,7 @@ export const styles = StyleSheet.create({
   },
 
   regCon: {
-    paddingVertical: 10
+    paddingVertical: 10,
   },
 
   passwordCon: {
@@ -45,12 +56,12 @@ export const styles = StyleSheet.create({
     paddingBottom: 35,
     alignItems: "center",
   },
-  line: { 
-    flex: 1, 
-    height: 1, 
-    backgroundColor: "black" 
+  line: {
+    flex: 1,
+    height: 1,
+    backgroundColor: "black",
   },
-  
+
   signinImgCon: {
     flexDirection: "row",
     justifyContent: "center",
@@ -65,7 +76,7 @@ export const styles = StyleSheet.create({
     zIndex: 1,
     left: 30,
   },
-  
+
   signinLink: {
     flexDirection: "row",
     justifyContent: "center",
@@ -73,4 +84,64 @@ export const styles = StyleSheet.create({
     paddingVertical: 30,
   },
 
+  moneyCon: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  numberCon: {
+    height: 25,
+    width: 50,
+    backgroundColor: "lightgray",
+    borderRadius: 10,
+    marginHorizontal: 2,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  upperNav: {
+    justifyContent: "space-between",
+    flexDirection: "row",
+    marginVertical: 15,
+  },
+
+  deliveryCon: {
+    flexWrap: "wrap",
+    width: 200,
+    height: 50,
+    flexDirection: "row",
+    paddingLeft: 55,
+  },
+
+  checkoutCon: {
+    height: 100,
+    width: 400,
+    backgroundColor: "rgba(245, 245, 245, 1)",
+    paddingHorizontal: 30,
+    paddingVertical: 10,
+    marginVertical: 10,
+    elevation: 10,
+  },
+
+  checkoutCon1: {
+    height: 100,
+    width: 380,
+    paddingHorizontal: 30,
+    paddingVertical: 10,
+    elevation: 5,
+    marginVertical: 10,
+    backgroundColor: "rgba(255, 255, 255, 1)",
+  },
+
+  checkoutCon2: {
+    height: 70,
+    width: 380,
+    paddingHorizontal: 30,
+    elevation: 5,
+    marginVertical: 10,
+    backgroundColor: "rgba(255, 255, 255, 1)",
+    paddingVertical: 15,
+  },
+    
 });
