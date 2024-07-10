@@ -19,7 +19,8 @@ export const COLORS = {
     white: 'rgba(255, 255, 255, 1)',
     heart: 'rgba(215, 4, 4, 1)',
     success: 'rgba(5, 198, 105, 1)',
-    lightGray: 'rgba(197, 197, 197, 1)'
+    lightGray: 'rgba(197, 197, 197, 1)',
+    lightGreen: "#05C669"
   },
 
   dark: {

@@ -16,6 +16,10 @@ export const styles = StyleSheet.create({
     color: COLORS.light.black,
     borderRadius: 8,
   },
+  rowGap:{
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between"},
 
   logo: { alignItems: "center", justifyContent: "center", width: "100%" },
 
@@ -72,5 +76,44 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     paddingVertical: 30,
   },
+  profilePic:{
+    borderRadius: 25,
+    height:40,
+    width:40,
+  },
+  foodPic:{
+    width: "100%", height: "100%", borderRadius: 90 
+  },
+  foodContainer:{
+    height: "75%",
+    width: "100%",
+    borderRadius: 90,
+    borderColor: "#FFA500",
+    borderWidth: 3,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  foodMenu:{
+    width: "48%",
+    height: 210,
+    borderRadius: 20,
+    borderColor: "#EEEEEE",
+    borderWidth: 2,
+    padding: 12,
+    justifyContent: "center",
+    marginBottom: 7,
+    paddingBottom:20,
+    paddingTop:20
+  },
+  greenCon:{
+    alignItems:"center",
+    height:165, 
+    width:165, 
+    borderWidth:10,
+    borderColor:"#05C669",
+    borderRadius:90,
+    justifyContent:"center",
+    marginTop:250,left:"25%"
+  }
 
 });
