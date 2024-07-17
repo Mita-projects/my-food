@@ -4,7 +4,7 @@ import { COLORS } from "./Colors";
 export const styles = StyleSheet.create({
   safeArea: { flex: 1 },
 
-  container: { paddingHorizontal: 20, paddingVertical: 10, },
+  container: { paddingHorizontal: 20, paddingVertical: 10 },
 
   button: {
     width: "100%",
@@ -143,5 +143,55 @@ export const styles = StyleSheet.create({
     backgroundColor: "rgba(255, 255, 255, 1)",
     paddingVertical: 15,
   },
-    
+
+  imageCon: {
+    height: 100,
+    width: 100,
+    marginHorizontal: 115,
+    marginTop: 50,
+    borderRadius: 50,
+    overflow: "hidden",
+  },
+
+  imageMain: {
+    height: "100%",
+    width: "100%",
+    resizeMode: "cover",
+  },
+
+  profileTextCon: {
+    justifyContent: "center",
+    alignItems: "center",
+    paddingTop: 20,
+    paddingBottom: 40,
+  },
+
+  sidebarContainer: {
+    flex: 1,
+    backgroundColor: COLORS.light.primary,
+    padding: 20,
+  },
+
+  passwordCase: {
+    backgroundColor: "white",
+    width: 200,
+    height: 30,
+    justifyContent: "center",
+    paddingLeft: 25,
+    marginLeft: -25,
+    borderRadius: 10,
+  },
+
+  profletextCon: {
+    flexDirection: "row",
+    paddingTop: 30,
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+
+  paymentCon: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingTop: 20, 
+  },
 });

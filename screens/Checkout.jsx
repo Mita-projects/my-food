@@ -136,7 +136,7 @@ const Checkout = () => {
           buttonColor={COLORS.light.primary}
           textColor={COLORS.light.white}
           buttonText={"PROCEED"}
-          onPress={() => navigation.navigate()}
+          onPress={() => navigation.navigate("PaymentConfirmation")}
         />
       </View>
     </ScrollView>
