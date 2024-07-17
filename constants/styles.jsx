@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
   button: {
     width: "100%",
     padding: 10,
+    paddingVertical: 14,
     borderRadius: 16,
     alignItems: "center",
   },
@@ -21,10 +22,11 @@ export const styles = StyleSheet.create({
     color: COLORS.light.black,
     borderRadius: 8,
   },
-  rowGap:{
+  rowGap: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between"},
+    justifyContent: "space-between",
+  },
 
   logo: { alignItems: "center", justifyContent: "center", width: "100%" },
 
@@ -87,24 +89,26 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     paddingVertical: 30,
   },
-  profilePic:{
+  profilePic: {
     borderRadius: 25,
-    height:40,
-    width:40,
+    height: 40,
+    width: 40,
   },
-  foodPic:{
-    width: "100%", height: "100%", borderRadius: 90 
-  },
-  foodContainer:{
-    height: "75%",
+  foodPic: {
     width: "100%",
-    borderRadius: 90,
+    height: "100%",
+    borderRadius: 100,
+  },
+  foodContainer: {
+    height: 120,
+    width: 120,
+    borderRadius: 100,
     borderColor: "#FFA500",
     borderWidth: 3,
-    alignItems: "center",
+    alignSelf: "center",
     justifyContent: "center",
   },
-  foodMenu:{
+  foodMenu: {
     width: "48%",
     height: 210,
     borderRadius: 20,
@@ -113,31 +117,34 @@ export const styles = StyleSheet.create({
     padding: 12,
     justifyContent: "center",
     marginBottom: 7,
-    paddingBottom:20,
-    paddingTop:20
+    paddingBottom: 20,
+    paddingTop: 20,
   },
-  greenCon:{
-    alignItems:"center",
-    height:165, 
-    width:165, 
-    borderWidth:10,
-    borderColor:"#05C669",
-    borderRadius:90,
-    justifyContent:"center",
-    marginTop:250,left:"25%"
-  }
+  greenCon: {
+    alignItems: "center",
+    height: 165,
+    width: 165,
+    borderWidth: 10,
+    borderColor: "#05C669",
+    borderRadius: 90,
+    justifyContent: "center",
+    marginTop: 250,
+    left: "25%",
+  },
 
   moneyCon: {
+    height: 30,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
+    gap: 6,
   },
 
   numberCon: {
-    height: 25,
+    height: "100%",
     width: 50,
     backgroundColor: "lightgray",
-    borderRadius: 10,
+    borderRadius: 20,
     marginHorizontal: 2,
     justifyContent: "center",
     alignItems: "center",
@@ -154,7 +161,6 @@ export const styles = StyleSheet.create({
     width: 200,
     height: 50,
     flexDirection: "row",
-    paddingLeft: 55,
   },
 
   checkoutCon: {
@@ -164,15 +170,15 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 30,
     paddingVertical: 10,
     marginVertical: 10,
-    elevation: 10,
+    elevation: 5,
   },
 
   checkoutCon1: {
-    height: 100,
-    width: 380,
+    height: 'auto',
+    width: '100%',
     paddingHorizontal: 30,
-    paddingVertical: 10,
-    elevation: 5,
+    paddingVertical: 20,
+    elevation: 2,
     marginVertical: 10,
     backgroundColor: "rgba(255, 255, 255, 1)",
   },
@@ -235,6 +241,6 @@ export const styles = StyleSheet.create({
   paymentCon: {
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingTop: 20, 
+    paddingTop: 20,
   },
 });

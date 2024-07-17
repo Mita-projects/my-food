@@ -13,7 +13,6 @@ const SignupPage = () => {
   const navigation = useNavigation();
 
   return (
-    
     <SafeAreaView
       style={[styles.safeArea, { backgroundColor: COLORS.light.primary }]}
     >
@@ -75,18 +74,16 @@ const SignupPage = () => {
             buttonColor={COLORS.light.black}
             textColor={COLORS.light.white}
             buttonText={"Register"}
-            onPress={()=>navigation.navigate("Home")}
+            onPress={() => navigation.navigate("SigninPage")}
           />
         </View>
 
         <View style={styles.signinLink}>
           <Text style={{ color: COLORS.light.white }}>Already a member?</Text>
           <Pressable onPress={() => navigation.navigate("SigninPage")}>
-            <Text style={{ color: COLORS.light.black }}>Login</Text>
+            <Text style={{ color: COLORS.light.black }}> Login</Text>
           </Pressable>
         </View>
-
-        
       </View>
     </SafeAreaView>
   );

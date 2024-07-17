@@ -31,7 +31,7 @@ const LoginPage = () => {
             onPress={() => navigation.navigate("SigninPage")}
           />
         </View>
-        
+
         <View style={{ paddingVertical: 10 }}>
           <Button
             buttonColor={COLORS.light.white}
@@ -50,14 +50,23 @@ const LoginPage = () => {
             paddingVertical: 15,
           }}
         >
-          <Text>Continue without Login</Text>
+          <Text style={{ fontSize: 14 }}>Continue without Login</Text>
         </Pressable>
 
-        <View style={{ flexDirection: "row" }}>
-          <View style={{ flex: 1, marginLeft: -20 }}>
+        <View style={{ flexDirection: "row", width: "100%" }}>
+          <View style={{ flex: 1, position: "absolute", left: -20 }}>
             <Image source={require("../assets/images/tomatoesbowl.png")} />
           </View>
-          <View style={{ flex: 1, marginRight: -20, marginTop: 116 }}>
+
+          <View
+            style={{
+              flex: 1,
+              marginTop: 116,
+              position: "absolute",
+              right: -20,
+              top: 50,
+            }}
+          >
             <Image source={require("../assets/images/jollofbowl.png")} />
           </View>
         </View>

@@ -44,7 +44,7 @@ const Details = () => {
             name="left"
             size={24}
             color="black"
-            onPress={() => navigation.navigate("LoginPage")}
+            onPress={() => navigation.goBack()}
           />
           <AntDesign
             name="right"
@@ -54,11 +54,15 @@ const Details = () => {
           />
         </Pressable>
 
-        <View style={{ paddingVertical: 20 }}>
-          <Image source={require("../assets/images/chickenricebowl.png")} />
+        <View style={{ paddingVertical: 20, width: "100%" }}>
+          <Image
+            source={require("../assets/images/chickenricebowl.png")}
+            resizeMode="cover"
+            style={{ width: "100%", borderRadius: 10 }}
+          />
         </View>
 
-        <Text style={{ paddingVertical: 10 }}>Chiken Rice Bowl </Text>
+        <Text style={{ paddingVertical: 10 }}>Chicken Rice Bowl </Text>
 
         <View
           style={{
@@ -68,18 +72,6 @@ const Details = () => {
           }}
         >
           <Text style={styles.bigText2}>$15.00</Text>
-
-          <View style={styles.moneyCon}>
-            <Pressable onPress={() => handleCount("-")}>
-              <Image source={require("../assets/images/minus.png")} />
-            </Pressable>
-            <View style={styles.numberCon}>
-              <Text>{count}</Text>
-            </View>
-            <Pressable onPress={() => handleCount("+")}>
-              <Image source={require("../assets/images/plus.png")} />
-            </Pressable>
-          </View>
         </View>
 
         <Text style={styles.bigText3}>Recipie</Text>

@@ -34,13 +34,13 @@ const SigninPage = () => {
         </View>
 
         <View style={styles.regCon}>
-          <Text style={styles.mediumText}>Email</Text>
+          <Text style={styles.smallText}>Email</Text>
           <View style={{ textColor: "black" }}>
             <Input backgroundColor={COLORS.light.white} />
           </View>
         </View>
         <View style={styles.regCon}>
-          <Text style={styles.mediumText}>Password</Text>
+          <Text style={styles.smallText}>Password</Text>
 
           <Input backgroundColor={COLORS.light.white} />
         </View>
@@ -52,7 +52,9 @@ const SigninPage = () => {
               Remember me
             </Text>
           </View>
-          <Text>Forgot Password?</Text>
+          <Text style={[styles.smallText, { color: COLORS.light.black }]}>
+            Forgot Password?
+          </Text>
         </View>
 
         <View style={{ paddingBottom: 30 }}>
@@ -60,7 +62,7 @@ const SigninPage = () => {
             buttonColor={COLORS.light.black}
             textColor={COLORS.light.white}
             buttonText={"Sign In"}
-            onPress={() => navigation.navigate("Details")}
+            onPress={() => navigation.navigate("Home")}
           />
         </View>
 
@@ -83,7 +85,7 @@ const SigninPage = () => {
             buttonColor={COLORS.light.white}
             textColor={COLORS.light.black}
             buttonText={"Sign in with Google"}
-            onPress={() => navigation.navigate("Details")}
+            onPress={() => navigation.navigate("Home")}
           />
         </View>
 
@@ -92,14 +94,14 @@ const SigninPage = () => {
             source={require("../assets/images/facebook.png")}
             style={styles.signinImg}
             resizeMode="cover"
-            onPress={() => navigation.navigate("Details")}
+            onPress={() => navigation.navigate("Home")}
           />
 
           <Button
             buttonColor={COLORS.light.white}
             textColor={COLORS.light.black}
             buttonText={"Sign in with Facebook"}
-            onPress={() => navigation.navigate("Details")}
+            onPress={() => navigation.navigate("Home")}
           />
         </View>
 
@@ -108,7 +110,7 @@ const SigninPage = () => {
             Don't have an account?
           </Text>
           <Pressable onPress={() => navigation.navigate("SignupPage")}>
-            <Text style={{ color: COLORS.light.black }}>Sign Up</Text>
+            <Text style={{ color: COLORS.light.black }}> Sign Up</Text>
           </Pressable>
         </View>
       </View>

@@ -14,7 +14,6 @@ const Cart = () => {
   const [count, setCount] = useState(1);
   const [total, setTotal] = useState(price);
 
-
   useEffect(() => {
     const handleTotalPrice = () => {
       const calTotal = price * count;
@@ -52,14 +51,20 @@ const Cart = () => {
       />
 
       <View style={styles.container}>
-        <AntDesign
-          name="left"
-          size={24}
-          color="black"
-          onPress={() => navigation.navigate("Details")}
-        />
-        <View style={{ paddingVertical: 30 }}>
-          <Image source={require("../assets/images/chickenricebowl.png")} />
+        <View style={{ width: 35 }}>
+          <AntDesign
+            name="left"
+            size={24}
+            color="black"
+            onPress={() => navigation.goBack()}
+          />
+        </View>
+
+        <View style={{ paddingVertical: 30, width: "100%" }}>
+          <Image
+            source={require("../assets/images/chickenricebowl.png")}
+            style={{ width: "100%", borderRadius: 10 }}
+          />
         </View>
 
         <Text>Chiken Rice Bowl </Text>
@@ -77,9 +82,11 @@ const Cart = () => {
             <Pressable onPress={() => handleCount("-")}>
               <Image source={require("../assets/images/minus.png")} />
             </Pressable>
+
             <View style={styles.numberCon}>
               <Text>{count}</Text>
             </View>
+
             <Pressable onPress={() => handleCount("+")}>
               <Image source={require("../assets/images/plus.png")} />
             </Pressable>

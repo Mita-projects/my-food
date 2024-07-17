@@ -114,7 +114,8 @@ const Checkout = () => {
         <Image source={require("../assets/images/goodmark.png")} />
         <Text>PAY WITH WALLET CREDIT</Text>
       </View>
-      <View style={styles.checkoutCon2}>
+
+      <View style={styles.checkoutCon1}>
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
           <Text style={{ fontWeight: "600" }}>SUBTOTAL</Text>
           <Text style={{ color: COLORS.light.primary, fontWeight: "600" }}>
@@ -131,7 +132,7 @@ const Checkout = () => {
           <Text>NGN 170, 000.00</Text>
         </View>
       </View>
-      <View style={{paddingVertical: 10, paddingHorizontal: 20}}>
+      <View style={{ paddingVertical: 10, paddingHorizontal: 20 }}>
         <Button
           buttonColor={COLORS.light.primary}
           textColor={COLORS.light.white}

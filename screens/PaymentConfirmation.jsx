@@ -8,7 +8,6 @@ import { AntDesign } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Fontisto } from "@expo/vector-icons";
 import { useState } from "react";
-import { AntDesign } from "@expo/vector-icons";
 import Button from "../widget/Button";
 
 const PaymentConfirmation = () => {
@@ -125,7 +124,9 @@ const PaymentConfirmation = () => {
           buttonColor={COLORS.light.primary}
           textColor={COLORS.light.white}
           buttonText={"SEND FOR CONFIRMATION"}
-          onPress={() => navigation.navigate("SigninPage")}
+          onPress={() =>
+            navigation.navigate("YelloLoader", { status: "failed" })
+          }
         />
       </View>
     </ScrollView>
