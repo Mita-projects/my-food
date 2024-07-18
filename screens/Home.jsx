@@ -12,6 +12,7 @@ import {
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
 import MenuCard from "../components/MenuCard";
+import { useSelector } from "react-redux";
 
 const menuData = [
   {
@@ -65,7 +66,10 @@ const menuData = [
 ];
 
 const Home = () => {
+  const { currentUser } = useSelector((state) => state.user);
+
   const navigation = useNavigation();
+
   return (
     <SafeAreaView
       style={[styles.safeArea, { backgroundColor: COLORS.light.white }]}
@@ -136,7 +140,9 @@ const Home = () => {
         </View>
 
         <View style={{ marginBottom: 12 }}>
-          <Text style={[styles.bigText, { color: "black" }]}>Hello Czar</Text>
+          <Text style={[styles.bigText, { color: "black" }]}>
+            Hello {currentUser.username}
+          </Text>
           <Text>choose your delicious meal</Text>
         </View>
 

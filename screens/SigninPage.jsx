@@ -4,9 +4,10 @@ import {
   SafeAreaView,
   Image,
   Pressable,
-  TextInput,
+  ActivityIndicator,
+  Alert,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { styles } from "../constants/styles";
 import Input from "../widget/Input";
 import { COLORS } from "../constants/Colors";
@@ -15,9 +16,38 @@ import LogoText from "../widget/LogoText";
 import FocusedStatusBar from "../constants/StatusBar";
 import CustomCheckbox from "../widget/Checkbox";
 import { useNavigation } from "@react-navigation/native";
+import { useDispatch } from "react-redux";
+import { userLogin } from "../redux/userRedux";
 
 const SigninPage = () => {
   const navigation = useNavigation();
+
+  const dispatch = useDispatch();
+
+  const [username, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const userData = {
+    username,
+    password,
+  };
+
+  const handleLogin = () => {
+    if (username === "") {
+      Alert.alert("Please enter your username to continue");
+    } else if (password === "") {
+      Alert.alert("Please enter your password to continue");
+    } else {
+      setIsLoading(true);
+
+      setTimeout(() => {
+        dispatch(userLogin(userData));
+        navigation.navigate("Home");
+        setIsLoading(false);
+      }, 3000);
+    }
+  };
 
   return (
     <SafeAreaView
@@ -34,15 +64,22 @@ const SigninPage = () => {
         </View>
 
         <View style={styles.regCon}>
-          <Text style={styles.smallText}>Email</Text>
+          <Text style={styles.smallText}>Username</Text>
           <View style={{ textColor: "black" }}>
-            <Input backgroundColor={COLORS.light.white} />
+            <Input
+              backgroundColor={COLORS.light.white}
+              onChangeText={(value) => setUserName(value.trim())}
+            />
           </View>
         </View>
         <View style={styles.regCon}>
           <Text style={styles.smallText}>Password</Text>
 
-          <Input backgroundColor={COLORS.light.white} />
+          <Input
+            backgroundColor={COLORS.light.white}
+            onChangeText={(value) => setPassword(value.trim())}
+            secureTextEntry={true}
+          />
         </View>
 
         <View style={styles.passwordCon}>
@@ -57,13 +94,19 @@ const SigninPage = () => {
           </Text>
         </View>
 
-        <View style={{ paddingBottom: 30 }}>
-          <Button
-            buttonColor={COLORS.light.black}
-            textColor={COLORS.light.white}
-            buttonText={"Sign In"}
-            onPress={() => navigation.navigate("Home")}
-          />
+        <View
+          style={{ paddingBottom: 30, width: "100%", alignItems: "center" }}
+        >
+          {isLoading ? (
+            <ActivityIndicator color={"white"} size={"large"} />
+          ) : (
+            <Button
+              buttonColor={COLORS.light.black}
+              textColor={COLORS.light.white}
+              buttonText={"Sign In"}
+              onPress={handleLogin}
+            />
+          )}
         </View>
 
         <View style={{ flexDirection: "row", alignItems: "center" }}>
