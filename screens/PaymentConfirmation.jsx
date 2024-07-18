@@ -54,80 +54,102 @@ const PaymentConfirmation = () => {
           SELECT PAYMENT METHOD
         </Text>
 
-        <Pressable onPress={handleEnabled}>
+        <Pressable
+          onPress={handleEnabled}
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            paddingVertical: 5,
+          }}
+        >
           <View style={{ flexDirection: "row" }}>
             <Fontisto
               name={enabled ? "radio-btn-passive" : "radio-btn-active"}
-              size={24}
+              size={20}
               color={enabled ? COLORS.light.black : COLORS.light.primary}
             />
+            <Text style={{ paddingHorizontal: 15 }}>Quickteller</Text>
           </View>
-          <Text>Quickteller</Text>
 
-          <AntDesign name="down" size={24} color="black" />
+          <AntDesign name="down" size={20} color="black" />
         </Pressable>
 
         <View style={styles.line}></View>
 
         <Pressable style={styles.paymentCon} onPress={handleisEnabled}>
-          <View style={{ flexDirection: "row" }}>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              paddingVertical: 5,
+            }}
+          >
             <Fontisto
               name={isEnabled ? "radio-btn-passive" : "radio-btn-active"}
               size={24}
               color={isEnabled ? COLORS.light.black : COLORS.light.primary}
             />
 
-            <Text>Credit/Debit card</Text>
+            <Text style={{ paddingHorizontal: 15 }}>Credit/Debit card</Text>
           </View>
 
-          <AntDesign name="up" size={24} color="black" />
+          <AntDesign name="up" size={20} color="black" />
         </Pressable>
 
-        <View>
-          <Text>Card Holder</Text>
-          <Text>PRINCEWILL CZAR</Text>
+        <View style={styles.payConText}>
+          <Text style={{ paddingVertical: 5 }}>Card Holder</Text>
+          <Text style={{ paddingVertical: 5 }}>PRINCEWILL CZAR</Text>
         </View>
 
-        <View>
-          <Text>Card Number</Text>
-          <Text>0805 6500 6626 5838</Text>
+        <View style={styles.payConText}>
+          <Text style={{ paddingVertical: 5 }}>Card Number</Text>
+          <Text style={{ paddingVertical: 5 }}>0805 6500 6626 5838</Text>
         </View>
 
-        <View style={{ flexDirection: "row" }}>
-          <View>
-            <Text>CVC</Text>
-            <Text>***</Text>
-          </View>
-
-          <View>
+        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+          <View style={[styles.payConText, { width: 170 }]}>
             <Text>Expiry Date</Text>
             <Text>DD/MM/YYYY</Text>
+          </View>
+
+          <View style={[styles.payConText, { width: 120 }]}>
+            <Text>CVC</Text>
+            <Text>***</Text>
           </View>
         </View>
 
         <View style={styles.line}></View>
 
-        <Pressable onPress={handleEnable}>
+        <Pressable
+          onPress={handleEnable}
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            paddingVertical: 10,
+          }}
+        >
           <View style={{ flexDirection: "row" }}>
             <Fontisto
               name={enable ? "radio-btn-passive" : "radio-btn-active"}
               size={24}
               color={enable ? COLORS.light.black : COLORS.light.primary}
             />
+            <Text style={{ paddingHorizontal: 10 }}>Not Banking</Text>
           </View>
-          <Text>Not Banking</Text>
 
-          <AntDesign name="down" size={24} color="black" />
+          <AntDesign name="down" size={20} color="black" />
         </Pressable>
 
-        <Button
-          buttonColor={COLORS.light.primary}
-          textColor={COLORS.light.white}
-          buttonText={"SEND FOR CONFIRMATION"}
-          onPress={() =>
-            navigation.navigate("YelloLoader", { status: "failed" })
-          }
-        />
+        <View style={{paddingVertical: 70}}>
+          <Button
+            buttonColor={COLORS.light.primary}
+            textColor={COLORS.light.white}
+            buttonText={"SEND FOR CONFIRMATION"}
+            onPress={() =>
+              navigation.navigate("YelloLoader", { status: "failed" })
+            }
+          />
+        </View>
       </View>
     </ScrollView>
   );

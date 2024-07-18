@@ -4,7 +4,7 @@ import { COLORS } from "./Colors";
 export const styles = StyleSheet.create({
   safeArea: { flex: 1 },
 
-  container: { paddingHorizontal: 20, paddingVertical: 10 },
+  container: { paddingHorizontal: 20, paddingVertical: 20 },
 
   button: {
     width: "100%",
@@ -242,5 +242,29 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     paddingTop: 20,
+  },
+
+  payConText: {
+    backgroundColor: " rgba(245, 245, 245, 1)",
+    marginBottom: 10,
+  },
+
+  sidepicCon: {
+    height: 40,
+    width: 40,
+    borderRadius: 90,
+    alignSelf: "center"
+  },
+
+  imageMain: {
+    height: "100%",
+    width: "100%",
+    borderRadius: 90,
+  },
+
+  draw: {
+    flex: 1,
+    height: 10,
+    backgroundColor: "white",
   },
 });

@@ -7,7 +7,7 @@ import YelloLoader from "./screens/YelloLoader";
 import ErrorRed from "./screens/ErrorRed";
 import Success from "./screens/Success";
 import Favorite from "./screens/Favorite";
-
+import Sidebar from "./screens/Sidebar";
 import LoginPage from "./screens/LoginPage";
 import Details from "./screens/Details";
 import Cart from "./screens/Cart";
@@ -20,7 +20,6 @@ const Stack = createStackNavigator();
 const MainApp = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Sidebar" component={LoginPage} />
       <Stack.Screen name="LoginPage" component={LoginPage} />
       <Stack.Screen name="SigninPage" component={SigninPage} />
       <Stack.Screen name="SignupPage" component={SignupPage}/>
@@ -29,7 +28,7 @@ const MainApp = () => {
       <Stack.Screen name="Success" component={Success}/>
       <Stack.Screen name="ErrorRed" component={ErrorRed}/>
       <Stack.Screen name="Favorite" component={Favorite}/>
-      
+      <Stack.Screen name="Sidebar" component={Sidebar} />
       <Stack.Screen name="Details" component={Details}/>
       <Stack.Screen name="Cart" component={Cart}/>
       <Stack.Screen name="Checkout" component={Checkout}/>

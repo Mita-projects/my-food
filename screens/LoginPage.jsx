@@ -43,7 +43,7 @@ const LoginPage = () => {
         </View>
 
         <Pressable
-          onPress={() => navigation.navigate("Details")}
+          onPress={() => navigation.navigate("Home")}
           style={{
             justifyContent: "center",
             alignItems: "center",
