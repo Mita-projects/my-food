@@ -43,46 +43,46 @@ const Sidebar = () => {
         <View style={styles.draw}></View>
 
         <Pressable style={styles.sidebarCon} onPress={() => navigation.navigate("Home")}>
-          <Foundation name="home" size={20} color="black" />
+          <Foundation name="home" size={20} color="white" />
           <Text style={[styles.smallText, {paddingHorizontal: 20}]}>Home</Text>
         </Pressable>
 
         <Pressable style={styles.sidebarCon} onPress={() => navigation.navigate("Profile")}>
-          <Entypo name="user" size={20} color="black" />
+          <Entypo name="user" size={20} color="white" />
           <Text style={[styles.smallText, {paddingHorizontal: 15}]}>Profile</Text>
         </Pressable>
 
         <Pressable style={styles.sidebarCon} onPress={() => {handleChosen()}}>
-          <MaterialIcons name="favorite" size={20} color="black" />
+          <MaterialIcons name="favorite" size={20} color="white" />
           <Text style={[styles.smallText, {paddingHorizontal: 15}]}>Favorite</Text>
         </Pressable>
 
         <Pressable style={styles.sidebarCon} onPress={() => {handleChosen()}}>
-          <Ionicons name="notifications" size={20} color="black" />
+          <Ionicons name="notifications" size={20} color="white" />
           <Text style={[styles.smallText, {paddingHorizontal:15}]}>Notfications</Text>
         </Pressable>
 
         <View style={styles.draw}></View>
 
         <Pressable style={styles.sidebarCon} onPress={() => {handleChosen()}}>
-          <AntDesign name="tag" size={20} color="black" />
+          <AntDesign name="tag" size={20} color="white" />
           <Text style={[styles.smallText, {paddingHorizontal: 15}]}>Promotions</Text>
         </Pressable>
 
         <Pressable style={styles.sidebarCon} onPress={() => {handleChosen()}}>
-          <Ionicons name="settings" size={20} color="black" />
+          <Ionicons name="settings" size={20} color="white" />
           <Text style={[styles.smallText, {paddingHorizontal: 15}]}>Settings</Text>
         </Pressable>
 
         <Pressable style={styles.sidebarCon} onPress={() => {handleChosen()}}>
-          <FontAwesome5 name="headphones" size={20} color="black" />
+          <FontAwesome5 name="headphones" size={20} color="white" />
           <Text style={[styles.smallText, {paddingHorizontal: 15}]}>Help</Text>
         </Pressable>
 
         <View style={styles.draw}></View>
 
         <Pressable style={styles.sidebarCon} onPress={() => navigation.navigate("LoginPage")}>
-          <Entypo name="log-out" size={20} color="black" />
+          <Entypo name="log-out" size={20} color="white" />
           <Text style={[styles.smallText, {paddingHorizontal: 15}]}>Logout</Text>
         </Pressable>
       </View>
