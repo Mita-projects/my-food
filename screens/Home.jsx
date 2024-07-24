@@ -14,6 +14,7 @@ import {
 import MenuCard from "../components/MenuCard";
 import { useSelector } from "react-redux";
 
+
 const menuData = [
   {
     id: 1,
@@ -72,7 +73,7 @@ const Home = () => {
 
   return (
     <SafeAreaView
-      style={[styles.safeArea, { backgroundColor: COLORS.light.white }]}
+      style={[styles.safeArea, { backgroundColor: COLORS.light.white}]}
     >
       <FocusedStatusBar
         backgroundColor={COLORS.light.white}
@@ -81,7 +82,7 @@ const Home = () => {
 
       <View style={[styles.container, { flex: 1 }]}>
         <View style={styles.rowGap}>
-          <Pressable>
+          <Pressable onPress={() => navigation.navigate("Sidebar")}>
             <Image source={require("../assets/images/menu.png")} />
           </Pressable>
 
@@ -97,6 +98,7 @@ const Home = () => {
               size={14}
               color="#FFA500"
             />
+
             <Text>Lagos,Nigeria</Text>
             <MaterialIcons
               name="keyboard-arrow-down"

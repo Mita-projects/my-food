@@ -4,7 +4,7 @@ import { COLORS } from "./Colors";
 export const styles = StyleSheet.create({
   safeArea: { flex: 1 },
 
-  container: { paddingHorizontal: 20, paddingVertical: 10 },
+  container: { paddingHorizontal: 20, paddingVertical: 20 },
 
   button: {
     width: "100%",
@@ -174,8 +174,8 @@ export const styles = StyleSheet.create({
   },
 
   checkoutCon1: {
-    height: 'auto',
-    width: '100%',
+    height: "auto",
+    width: "100%",
     paddingHorizontal: 30,
     paddingVertical: 20,
     elevation: 2,
@@ -224,7 +224,7 @@ export const styles = StyleSheet.create({
   passwordCase: {
     backgroundColor: "white",
     width: 200,
-    height: 30,
+    height: 40,
     justifyContent: "center",
     paddingLeft: 25,
     marginLeft: -25,
@@ -233,7 +233,7 @@ export const styles = StyleSheet.create({
 
   profletextCon: {
     flexDirection: "row",
-    paddingTop: 30,
+    paddingTop: 15,
     alignItems: "center",
     justifyContent: "space-between",
   },
@@ -242,5 +242,35 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     paddingTop: 20,
+  },
+
+  payConText: {
+    backgroundColor: " rgba(245, 245, 245, 1)",
+    marginBottom: 10,
+  },
+
+  sidepicCon: {
+    height: 40,
+    width: 40,
+    borderRadius: 90,
+    alignSelf: "center",
+  },
+
+  imageMain: {
+    height: "100%",
+    width: "100%",
+    borderRadius: 90,
+  },
+
+  draw: {
+    height: 1,
+    backgroundColor: "white",
+    marginVertical: 20,
+  },
+
+  sidebarCon: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingVertical: 10,
   },
 });

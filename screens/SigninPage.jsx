@@ -4,8 +4,11 @@ import {
   SafeAreaView,
   Image,
   Pressable,
+<<<<<<< HEAD
   ActivityIndicator,
   Alert,
+=======
+>>>>>>> 4473dad4a3e37102e035bddd372ed62f987e57b1
 } from "react-native";
 import React, { useState } from "react";
 import { styles } from "../constants/styles";
