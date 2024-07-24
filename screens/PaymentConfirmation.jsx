@@ -5,26 +5,38 @@ import { COLORS } from "../constants/Colors";
 import FocusedStatusBar from "../constants/StatusBar";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Fontisto } from "@expo/vector-icons";
 import { useState } from "react";
 import Button from "../widget/Button";
 
 const PaymentConfirmation = () => {
-  const [isEnabled, setIsEnabled] = useState(false);
-  const [enabled, setEnabled] = useState(false);
-  const [enable, setEnable] = useState(false);
+  const [isEnabled1, setIsEnabled1] = useState(false);
+  const [isEnabled2, setIsEnabled2] = useState(false);
+  const [isEnabled3, setIsEnabled3] = useState(false);
 
-  const handleEnabled = () => {
-    setEnabled((prevState) => !prevState);
-  };
+  const handleEnabled = (value) => {
+    switch (value) {
+      case 1:
+        setIsEnabled1(true);
+        setIsEnabled2(false);
+        setIsEnabled3(false);
+        break;
 
-  const handleisEnabled = () => {
-    setIsEnabled((prevState) => !prevState);
-  };
+      case 2:
+        setIsEnabled1(false);
+        setIsEnabled2(true);
+        setIsEnabled3(false);
+        break;
 
-  const handleEnable = () => {
-    setEnable((prevState) => !prevState);
+      case 3:
+        setIsEnabled1(false);
+        setIsEnabled2(false);
+        setIsEnabled3(true);
+        break;
+
+      default:
+        break;
+    }
   };
 
   const navigation = useNavigation();
@@ -55,7 +67,7 @@ const PaymentConfirmation = () => {
         </Text>
 
         <Pressable
-          onPress={handleEnabled}
+          onPress={() => handleEnabled(1)}
           style={{
             flexDirection: "row",
             justifyContent: "space-between",
@@ -64,9 +76,9 @@ const PaymentConfirmation = () => {
         >
           <View style={{ flexDirection: "row" }}>
             <Fontisto
-              name={enabled ? "radio-btn-passive" : "radio-btn-active"}
+              name={isEnabled1 ? "radio-btn-passive" : "radio-btn-active"}
               size={20}
-              color={enabled ? COLORS.light.black : COLORS.light.primary}
+              color={isEnabled1 ? COLORS.light.black : COLORS.light.primary}
             />
             <Text style={{ paddingHorizontal: 15 }}>Quickteller</Text>
           </View>
@@ -76,7 +88,7 @@ const PaymentConfirmation = () => {
 
         <View style={styles.line}></View>
 
-        <Pressable style={styles.paymentCon} onPress={handleisEnabled}>
+        <Pressable style={styles.paymentCon} onPress={() => handleEnabled(2)}>
           <View
             style={{
               flexDirection: "row",
@@ -85,9 +97,9 @@ const PaymentConfirmation = () => {
             }}
           >
             <Fontisto
-              name={isEnabled ? "radio-btn-passive" : "radio-btn-active"}
+              name={isEnabled2 ? "radio-btn-passive" : "radio-btn-active"}
               size={24}
-              color={isEnabled ? COLORS.light.black : COLORS.light.primary}
+              color={isEnabled2 ? COLORS.light.black : COLORS.light.primary}
             />
 
             <Text style={{ paddingHorizontal: 15 }}>Credit/Debit card</Text>
@@ -121,7 +133,7 @@ const PaymentConfirmation = () => {
         <View style={styles.line}></View>
 
         <Pressable
-          onPress={handleEnable}
+          onPress={() => handleEnabled(3)}
           style={{
             flexDirection: "row",
             justifyContent: "space-between",
@@ -130,9 +142,9 @@ const PaymentConfirmation = () => {
         >
           <View style={{ flexDirection: "row" }}>
             <Fontisto
-              name={enable ? "radio-btn-passive" : "radio-btn-active"}
+              name={isEnabled3 ? "radio-btn-passive" : "radio-btn-active"}
               size={24}
-              color={enable ? COLORS.light.black : COLORS.light.primary}
+              color={isEnabled3 ? COLORS.light.black : COLORS.light.primary}
             />
             <Text style={{ paddingHorizontal: 10 }}>Not Banking</Text>
           </View>
@@ -140,7 +152,7 @@ const PaymentConfirmation = () => {
           <AntDesign name="down" size={20} color="black" />
         </Pressable>
 
-        <View style={{paddingVertical: 70}}>
+        <View style={{ paddingVertical: 70 }}>
           <Button
             buttonColor={COLORS.light.primary}
             textColor={COLORS.light.white}

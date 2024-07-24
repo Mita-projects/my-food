@@ -13,6 +13,7 @@ import {
 } from "@expo/vector-icons";
 import MenuCard from "../components/MenuCard";
 
+
 const menuData = [
   {
     id: 1,

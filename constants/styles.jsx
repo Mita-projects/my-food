@@ -174,8 +174,8 @@ export const styles = StyleSheet.create({
   },
 
   checkoutCon1: {
-    height: 'auto',
-    width: '100%',
+    height: "auto",
+    width: "100%",
     paddingHorizontal: 30,
     paddingVertical: 20,
     elevation: 2,
@@ -224,7 +224,7 @@ export const styles = StyleSheet.create({
   passwordCase: {
     backgroundColor: "white",
     width: 200,
-    height: 30,
+    height: 40,
     justifyContent: "center",
     paddingLeft: 25,
     marginLeft: -25,
@@ -233,7 +233,7 @@ export const styles = StyleSheet.create({
 
   profletextCon: {
     flexDirection: "row",
-    paddingTop: 30,
+    paddingTop: 15,
     alignItems: "center",
     justifyContent: "space-between",
   },
@@ -253,7 +253,7 @@ export const styles = StyleSheet.create({
     height: 40,
     width: 40,
     borderRadius: 90,
-    alignSelf: "center"
+    alignSelf: "center",
   },
 
   imageMain: {
@@ -263,8 +263,14 @@ export const styles = StyleSheet.create({
   },
 
   draw: {
-    flex: 1,
-    height: 10,
+    height: 1,
     backgroundColor: "white",
+    marginVertical: 20,
+  },
+
+  sidebarCon: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingVertical: 10,
   },
 });

@@ -4,7 +4,6 @@ import {
   SafeAreaView,
   Image,
   Pressable,
-  TextInput,
 } from "react-native";
 import React from "react";
 import { styles } from "../constants/styles";
