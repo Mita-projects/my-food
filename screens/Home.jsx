@@ -14,7 +14,6 @@ import {
 import MenuCard from "../components/MenuCard";
 import { useSelector } from "react-redux";
 
-
 const menuData = [
   {
     id: 1,
@@ -73,7 +72,7 @@ const Home = () => {
 
   return (
     <SafeAreaView
-      style={[styles.safeArea, { backgroundColor: COLORS.light.white}]}
+      style={[styles.safeArea, { backgroundColor: COLORS.light.white }]}
     >
       <FocusedStatusBar
         backgroundColor={COLORS.light.white}
