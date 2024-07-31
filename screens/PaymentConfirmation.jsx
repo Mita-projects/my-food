@@ -33,7 +33,7 @@ const PaymentConfirmation = () => {
             name="left"
             size={20}
             color="black"
-            onPress={() => navigation.navigate("Cart")}
+            onPress={() => navigation.navigate("Checkout")}
           />
           <Text style={{ paddingHorizontal: 20, color: "gray" }}>
             PAYMENT OPTIONS

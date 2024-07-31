@@ -9,18 +9,13 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
-import {
-  createDrawerNavigator,
-  DrawerContentScrollView,
-  DrawerItem,
-} from "@react-navigation/drawer";
 import { useNavigation } from "@react-navigation/native";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/userRedux";
 
 const Sidebar = () => {
   const navigation = useNavigation();
-
+  const { currentUser } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   const handleLogout = () => {
@@ -45,7 +40,7 @@ const Sidebar = () => {
             />
           </View>
           <View style={{ paddingHorizontal: 10 }}>
-            <Text style={styles.mediumText}>Princewill Czar</Text>
+            <Text style={styles.mediumText}>{currentUser.username}</Text>
             <Text style={styles.smallText}>User Customer</Text>
           </View>
         </View>
