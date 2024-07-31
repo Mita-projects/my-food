@@ -9,14 +9,24 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
-import { createDrawerNavigator, DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
+import {
+  createDrawerNavigator,
+  DrawerContentScrollView,
+  DrawerItem,
+} from "@react-navigation/drawer";
 import { useNavigation } from "@react-navigation/native";
-
-
-
+import { useDispatch } from "react-redux";
+import { logout } from "../redux/userRedux";
 
 const Sidebar = () => {
-  const navigation = useNavigation()
+  const navigation = useNavigation();
+
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+
   return (
     <SafeAreaView
       style={[styles.safeArea, { backgroundColor: COLORS.light.primary }]}
@@ -42,52 +52,98 @@ const Sidebar = () => {
 
         <View style={styles.draw}></View>
 
-        <Pressable style={styles.sidebarCon} onPress={() => navigation.navigate("Home")}>
-          <Foundation name="home" size={20} color="white" />
-          <Text style={[styles.smallText, {paddingHorizontal: 20}]}>Home</Text>
+        <Pressable
+          style={styles.sidebarCon}
+          onPress={() => navigation.navigate("Home")}
+        >
+          <Foundation name="home" size={20} color="black" />
+          <Text style={[styles.smallText, { paddingHorizontal: 20 }]}>
+            Home
+          </Text>
         </Pressable>
 
-        <Pressable style={styles.sidebarCon} onPress={() => navigation.navigate("Profile")}>
-          <Entypo name="user" size={20} color="white" />
-          <Text style={[styles.smallText, {paddingHorizontal: 15}]}>Profile</Text>
+        <Pressable
+          style={styles.sidebarCon}
+          onPress={() => navigation.navigate("Profile")}
+        >
+          <Entypo name="user" size={20} color="black" />
+          <Text style={[styles.smallText, { paddingHorizontal: 15 }]}>
+            Profile
+          </Text>
         </Pressable>
 
-        <Pressable style={styles.sidebarCon} onPress={() => {handleChosen()}}>
-          <MaterialIcons name="favorite" size={20} color="white" />
-          <Text style={[styles.smallText, {paddingHorizontal: 15}]}>Favorite</Text>
+        <Pressable
+          style={styles.sidebarCon}
+          onPress={() => {
+            handleChosen();
+          }}
+        >
+          <MaterialIcons name="favorite" size={20} color="black" />
+          <Text style={[styles.smallText, { paddingHorizontal: 15 }]}>
+            Favorite
+          </Text>
         </Pressable>
 
-        <Pressable style={styles.sidebarCon} onPress={() => {handleChosen()}}>
-          <Ionicons name="notifications" size={20} color="white" />
-          <Text style={[styles.smallText, {paddingHorizontal:15}]}>Notfications</Text>
+        <Pressable
+          style={styles.sidebarCon}
+          onPress={() => {
+            handleChosen();
+          }}
+        >
+          <Ionicons name="notifications" size={20} color="black" />
+          <Text style={[styles.smallText, { paddingHorizontal: 15 }]}>
+            Notfications
+          </Text>
         </Pressable>
 
         <View style={styles.draw}></View>
 
-        <Pressable style={styles.sidebarCon} onPress={() => {handleChosen()}}>
-          <AntDesign name="tag" size={20} color="white" />
-          <Text style={[styles.smallText, {paddingHorizontal: 15}]}>Promotions</Text>
+        <Pressable
+          style={styles.sidebarCon}
+          onPress={() => {
+            handleChosen();
+          }}
+        >
+          <AntDesign name="tag" size={20} color="black" />
+          <Text style={[styles.smallText, { paddingHorizontal: 15 }]}>
+            Promotions
+          </Text>
         </Pressable>
 
-        <Pressable style={styles.sidebarCon} onPress={() => {handleChosen()}}>
-          <Ionicons name="settings" size={20} color="white" />
-          <Text style={[styles.smallText, {paddingHorizontal: 15}]}>Settings</Text>
+        <Pressable
+          style={styles.sidebarCon}
+          onPress={() => {
+            handleChosen();
+          }}
+        >
+          <Ionicons name="settings" size={20} color="black" />
+          <Text style={[styles.smallText, { paddingHorizontal: 15 }]}>
+            Settings
+          </Text>
         </Pressable>
 
-        <Pressable style={styles.sidebarCon} onPress={() => {handleChosen()}}>
-          <FontAwesome5 name="headphones" size={20} color="white" />
-          <Text style={[styles.smallText, {paddingHorizontal: 15}]}>Help</Text>
+        <Pressable
+          style={styles.sidebarCon}
+          onPress={() => {
+            handleChosen();
+          }}
+        >
+          <FontAwesome5 name="headphones" size={20} color="black" />
+          <Text style={[styles.smallText, { paddingHorizontal: 15 }]}>
+            Help
+          </Text>
         </Pressable>
 
         <View style={styles.draw}></View>
 
-        <Pressable style={styles.sidebarCon} onPress={() => navigation.navigate("LoginPage")}>
-          <Entypo name="log-out" size={20} color="white" />
-          <Text style={[styles.smallText, {paddingHorizontal: 15}]}>Logout</Text>
+        <Pressable style={styles.sidebarCon} onPress={handleLogout}>
+          <Entypo name="log-out" size={20} color="black" />
+          <Text style={[styles.smallText, { paddingHorizontal: 15 }]}>
+            Logout
+          </Text>
         </Pressable>
       </View>
     </SafeAreaView>
- 
   );
 };
 

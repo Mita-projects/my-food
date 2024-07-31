@@ -10,36 +10,14 @@ import { useState } from "react";
 import Button from "../widget/Button";
 
 const PaymentConfirmation = () => {
-  const [isEnabled1, setIsEnabled1] = useState(false);
-  const [isEnabled2, setIsEnabled2] = useState(false);
-  const [isEnabled3, setIsEnabled3] = useState(false);
+  const [selected, setSelected] = useState("");
 
-  const handleEnabled = (value) => {
-    switch (value) {
-      case 1:
-        setIsEnabled1(true);
-        setIsEnabled2(false);
-        setIsEnabled3(false);
-        break;
-
-      case 2:
-        setIsEnabled1(false);
-        setIsEnabled2(true);
-        setIsEnabled3(false);
-        break;
-
-      case 3:
-        setIsEnabled1(false);
-        setIsEnabled2(false);
-        setIsEnabled3(true);
-        break;
-
-      default:
-        break;
-    }
+  const handleSelected = (value) => {
+    setSelected(value);
   };
 
   const navigation = useNavigation();
+
   return (
     <ScrollView
       style={[styles.safeArea, { backgroundColor: COLORS.light.white }]}
@@ -67,7 +45,7 @@ const PaymentConfirmation = () => {
         </Text>
 
         <Pressable
-          onPress={() => handleEnabled(1)}
+          onPress={() => handleSelected(1)}
           style={{
             flexDirection: "row",
             justifyContent: "space-between",
@@ -76,9 +54,9 @@ const PaymentConfirmation = () => {
         >
           <View style={{ flexDirection: "row" }}>
             <Fontisto
-              name={isEnabled1 ? "radio-btn-passive" : "radio-btn-active"}
+              name={selected === 1 ? "radio-btn-active" : "radio-btn-passive"}
               size={20}
-              color={isEnabled1 ? COLORS.light.black : COLORS.light.primary}
+              color={selected === 1 ? COLORS.light.primary : COLORS.light.black}
             />
             <Text style={{ paddingHorizontal: 15 }}>Quickteller</Text>
           </View>
@@ -88,7 +66,7 @@ const PaymentConfirmation = () => {
 
         <View style={styles.line}></View>
 
-        <Pressable style={styles.paymentCon} onPress={() => handleEnabled(2)}>
+        <Pressable style={styles.paymentCon} onPress={() => handleSelected(2)}>
           <View
             style={{
               flexDirection: "row",
@@ -97,9 +75,9 @@ const PaymentConfirmation = () => {
             }}
           >
             <Fontisto
-              name={isEnabled2 ? "radio-btn-passive" : "radio-btn-active"}
+              name={selected === 2 ? "radio-btn-active" : "radio-btn-passive"}
               size={24}
-              color={isEnabled2 ? COLORS.light.black : COLORS.light.primary}
+              color={selected === 2 ? COLORS.light.primary : COLORS.light.black}
             />
 
             <Text style={{ paddingHorizontal: 15 }}>Credit/Debit card</Text>
@@ -133,7 +111,7 @@ const PaymentConfirmation = () => {
         <View style={styles.line}></View>
 
         <Pressable
-          onPress={() => handleEnabled(3)}
+          onPress={() => handleSelected(3)}
           style={{
             flexDirection: "row",
             justifyContent: "space-between",
@@ -142,9 +120,9 @@ const PaymentConfirmation = () => {
         >
           <View style={{ flexDirection: "row" }}>
             <Fontisto
-              name={isEnabled3 ? "radio-btn-passive" : "radio-btn-active"}
+              name={selected === 3 ? "radio-btn-active" : "radio-btn-passive"}
               size={24}
-              color={isEnabled3 ? COLORS.light.black : COLORS.light.primary}
+              color={selected === 3 ? COLORS.light.primary : COLORS.light.black}
             />
             <Text style={{ paddingHorizontal: 10 }}>Not Banking</Text>
           </View>
