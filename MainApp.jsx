@@ -6,8 +6,6 @@ import StackNavigation from "./navigation/StackNavigation";
 const MainApp = () => {
   const { currentUser } = useSelector((state) => state.user);
 
-  console.log(currentUser);
-
   if (!currentUser) {
     return <AuthNavigation />;
   }

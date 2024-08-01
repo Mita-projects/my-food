@@ -69,9 +69,7 @@ const Sidebar = () => {
 
         <Pressable
           style={styles.sidebarCon}
-          onPress={() => {
-            handleChosen();
-          }}
+          onPress={() => navigation.navigate("Favorite")}
         >
           <MaterialIcons name="favorite" size={20} color="black" />
           <Text style={[styles.smallText, { paddingHorizontal: 15 }]}>

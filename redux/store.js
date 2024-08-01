@@ -1,6 +1,7 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import userReducer from "./userRedux";
-import themeReducer from './themeRedux'
+import themeReducer from "./themeRedux";
+import favoriteReducer from "./favoriteRedux";
 import {
   persistStore,
   persistReducer,
@@ -11,7 +12,7 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const persistConfig = {
   key: "root",
@@ -21,7 +22,8 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   user: userReducer,
-  theme: themeReducer
+  theme: themeReducer,
+  favorites: favoriteReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

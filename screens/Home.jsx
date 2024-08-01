@@ -157,8 +157,8 @@ const Home = () => {
               height: "auto",
             }}
           >
-            {menuData.map((items) => (
-              <MenuCard key={items.id} items={items} />
+            {menuData.map((item) => (
+              <MenuCard key={item.id} item={item} />
             ))}
           </View>
         </ScrollView>

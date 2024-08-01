@@ -1,20 +1,32 @@
-import { View, Text, Pressable, Image } from "react-native";
-import React, { useState } from "react";
+import { View, Text, Pressable, Image, Alert } from "react-native";
+import React, { useEffect, useState } from "react";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { styles } from "../constants/styles";
 import { useNavigation } from "@react-navigation/native";
-import Favorite from "../screens/Favorite";
+import { useDispatch, useSelector } from "react-redux";
+import { addFavorite } from "../redux/favoriteRedux";
 
-const MenuCard = ({ items }) => {
+const MenuCard = ({ item }) => {
+  const { favorites } = useSelector((state) => state.favorites);
+
+  const dispatch = useDispatch();
+
   const navigation = useNavigation();
-  const [heartcolor, setheartColor] = useState("#EEEEEE");
+  const [heartColor, setHeartColor] = useState("#EEEEEE");
   const [addcolor, setaddColor] = useState("#EEEEEE");
 
-  const toggleColor = () => {
-    setheartColor((prevColor) =>
-      prevColor === "#EEEEEE" ? "#D20062" : "#EEEEEE"
-    );
+  const handleAddFavorite = (favorite) => {
+    dispatch(addFavorite(favorite));
   };
+
+  let favoriteIds = [];
+  useEffect(() => {
+    favorites?.forEach((fav) => favoriteIds.push(fav.id));
+
+    favoriteIds.includes(item.id)
+      ? setHeartColor("#D20062")
+      : setHeartColor("#EEEEEE");
+  }, [favorites]);
 
   const changeColor = () => {
     setaddColor((prevColor) => (prevColor === "#EEEEEE" ? "green" : "#EEEEEE"));
@@ -32,19 +44,19 @@ const MenuCard = ({ items }) => {
           flexDirection: "row",
         }}
       >
-        <Pressable onPress={() => navigation.navigate("Favorite")}>
+        <Pressable>
           <Ionicons name="radio-button-on-sharp" size={24} color="#FFA500" />
         </Pressable>
-        <Pressable onPress={toggleColor}>
-          <Ionicons name="heart" size={22} color={heartcolor} />
+        <Pressable onPress={() => handleAddFavorite(item)}>
+          <Ionicons name="heart" size={22} color={heartColor} />
         </Pressable>
       </View>
 
       <View style={styles.foodContainer}>
-        <Image style={styles.foodPic} source={{ uri: items.img }} />
+        <Image style={styles.foodPic} source={{ uri: item.img }} />
       </View>
 
-      <Text>{items.meal} </Text>
+      <Text>{item.meal} </Text>
       <View
         style={{
           flexDirection: "row",
@@ -52,7 +64,7 @@ const MenuCard = ({ items }) => {
         }}
       >
         <Text style={[styles.bigText, { color: "#FFA500" }]}>
-          {items.price}{" "}
+          {item.price}{" "}
         </Text>
         <Pressable onPress={changeColor}>
           <FontAwesome name="plus-circle" size={24} color={addcolor} />
