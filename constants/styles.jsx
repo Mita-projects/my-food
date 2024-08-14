@@ -22,6 +22,14 @@ export const styles = StyleSheet.create({
     color: COLORS.light.black,
     borderRadius: 8,
   },
+
+  inputCon: {
+    paddingTop: 20,
+    paddingBottom: 10,
+    alignItems: "center",
+    flexDirection: "row",
+  },
+
   rowGap: {
     flexDirection: "row",
     alignItems: "center",
@@ -75,6 +83,13 @@ export const styles = StyleSheet.create({
     paddingVertical: 20,
   },
 
+  searchCon: {
+    right: 30,
+    zIndex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
   signinImg: {
     height: 23,
     width: 23,
@@ -108,8 +123,17 @@ export const styles = StyleSheet.create({
     alignSelf: "center",
     justifyContent: "center",
   },
+
+  menucardCon: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 5,
+    justifyContent: "space-between",
+    height: "auto",
+  },
+  
   foodMenu: {
-    width: "48%",
+    width: 150,
     height: 210,
     borderRadius: 20,
     borderColor: "#EEEEEE",
@@ -272,5 +296,43 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     paddingVertical: 10,
+  },
+
+  moneyNum: {
+    alignItems: "center",
+    gap: 10,
+    paddingLeft: 45,
+    // alignSelf: "center",
+  
+
+  },
+
+  btnQtyCon: {
+    // borderWidth: 1,
+    // borderColor: "#FFA500",
+    width: 30,
+    height: 55,
+    borderRadius: 20,
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 10,
+  },
+
+  totalCon: {
+    height: 50,
+    width: 300,
+    borderWidth: 1,
+    borderRadius: 8,
+    borderBlockColor: "#FFA500"
+  },
+
+  priceCon: {
+    height: 40,
+    width: 100,
+    borderWidth: 1,
+    borderRadius: 8,
+    borderBlockColor: "#FFA500",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

@@ -5,32 +5,43 @@ import { styles } from "../constants/styles";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavorite } from "../redux/favoriteRedux";
+import { addCart } from "../redux/cartRedux";
 
-const MenuCard = ({ item }) => {
+const MenuCard = ({ items, dataSet, setDataSet }) => {
   const { favorites } = useSelector((state) => state.favorites);
+  const { cart } = useSelector((state) => state.cart);
 
   const dispatch = useDispatch();
 
   const navigation = useNavigation();
   const [heartColor, setHeartColor] = useState("#EEEEEE");
-  const [addcolor, setaddColor] = useState("#EEEEEE");
+  const [plusColor, setPlusColor] = useState("#EEEEEE");
 
   const handleAddFavorite = (favorite) => {
     dispatch(addFavorite(favorite));
+  };
+
+  const handleAddCart = (cart) => {
+    dispatch(addCart(cart));
   };
 
   let favoriteIds = [];
   useEffect(() => {
     favorites?.forEach((fav) => favoriteIds.push(fav.id));
 
-    favoriteIds.includes(item.id)
+    favoriteIds.includes(items.id)
       ? setHeartColor("#D20062")
       : setHeartColor("#EEEEEE");
   }, [favorites]);
 
-  const changeColor = () => {
-    setaddColor((prevColor) => (prevColor === "#EEEEEE" ? "green" : "#EEEEEE"));
-  };
+  let cartIds = [];
+  useEffect(() => {
+    cart?.forEach((car) => cartIds.push(car.id));
+
+    cartIds.includes(items.id)
+      ? setPlusColor("green")
+      : setPlusColor("#EEEEEE");
+  }, [cart]);
 
   return (
     <Pressable
@@ -47,16 +58,16 @@ const MenuCard = ({ item }) => {
         <Pressable>
           <Ionicons name="radio-button-on-sharp" size={24} color="#FFA500" />
         </Pressable>
-        <Pressable onPress={() => handleAddFavorite(item)}>
+        <Pressable onPress={() => handleAddFavorite(items)}>
           <Ionicons name="heart" size={22} color={heartColor} />
         </Pressable>
       </View>
 
       <View style={styles.foodContainer}>
-        <Image style={styles.foodPic} source={{ uri: item.img }} />
+        <Image style={styles.foodPic} source={{ uri: items.img }} />
       </View>
 
-      <Text>{item.meal} </Text>
+      <Text>{items.meal} </Text>
       <View
         style={{
           flexDirection: "row",
@@ -64,10 +75,11 @@ const MenuCard = ({ item }) => {
         }}
       >
         <Text style={[styles.bigText, { color: "#FFA500" }]}>
-          {item.price}{" "}
+          {items.price}{" "}
         </Text>
-        <Pressable onPress={changeColor}>
-          <FontAwesome name="plus-circle" size={24} color={addcolor} />
+
+        <Pressable onPress={() => handleAddCart(items)}>
+          <FontAwesome name="plus-circle" size={24} color={plusColor} />
         </Pressable>
       </View>
     </Pressable>

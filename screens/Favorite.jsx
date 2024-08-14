@@ -6,8 +6,7 @@ import { styles } from "../constants/styles";
 import { COLORS } from "../constants/Colors";
 import { SafeAreaView } from "react-native-safe-area-context";
 import FavoriteCards from "../components/FavoriteCards";
-import { useDispatch, useSelector } from "react-redux";
-import { removeFavorite } from "../redux/favoriteRedux";
+import { useSelector } from "react-redux";
 
 const Favorite = () => {
   const { favorites } = useSelector((state) => state.favorites);

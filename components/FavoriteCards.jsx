@@ -10,11 +10,6 @@ const FavoriteCards = ({ items }) => {
   const dispatch = useDispatch();
 
   const navigation = useNavigation();
-  const [addcolor, setaddColor] = useState("#EEEEEE");
-
-  const changeColor = () => {
-    setaddColor((prevColor) => (prevColor === "#EEEEEE" ? "green" : "#EEEEEE"));
-  };
 
   const handleRemoveFavorite = (favorite) => {
     dispatch(removeFavorite(favorite));
@@ -52,9 +47,6 @@ const FavoriteCards = ({ items }) => {
         <Text style={[styles.bigText, { color: "#FFA500" }]}>
           {items.price}{" "}
         </Text>
-        <Pressable onPress={changeColor}>
-          <FontAwesome name="plus-circle" size={24} color={addcolor} />
-        </Pressable>
       </View>
     </View>
   );

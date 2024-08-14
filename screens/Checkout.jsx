@@ -7,8 +7,12 @@ import FocusedStatusBar from "../constants/StatusBar";
 import { AntDesign } from "@expo/vector-icons";
 import Button from "../widget/Button";
 
-const Checkout = () => {
+const Checkout = ({route}) => {
   const navigation = useNavigation();
+
+  const {total} = route.params
+
+  console.log(total)
 
   return (
     <ScrollView
@@ -92,7 +96,7 @@ const Checkout = () => {
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
           <Text style={{ fontWeight: "600" }}>SUBTOTAL</Text>
           <Text style={{ color: COLORS.light.primary, fontWeight: "600" }}>
-            NGN 750.00
+            ${total}
           </Text>
         </View>
 
@@ -105,7 +109,7 @@ const Checkout = () => {
         >
           <Text style={{ fontWeight: "600" }}>TOTAL</Text>
           <Text style={{ color: COLORS.light.black, fontWeight: "600" }}>
-            NGN 750.00
+          ${total}
           </Text>
         </View>
       </View>

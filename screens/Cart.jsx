@@ -1,48 +1,23 @@
-import { View, Text, ScrollView, Image, Pressable } from "react-native";
-import React, { useEffect, useState } from "react";
+import { View, Text, Image, ScrollView, Pressable } from "react-native";
+import React, { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 import FocusedStatusBar from "../constants/StatusBar";
 import { styles } from "../constants/styles";
-import { AntDesign } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
 import { COLORS } from "../constants/Colors";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { useSelector } from "react-redux";
+import CartCards from "../components/CartCards";
 import Button from "../widget/Button";
 
 const Cart = () => {
-  const price = 15.0;
+  const { cart } = useSelector((state) => state.cart);
+
+  const [total, setTotal] = useState(0);
 
   const navigation = useNavigation();
-  const [count, setCount] = useState(1);
-  const [total, setTotal] = useState(price);
-
-  useEffect(() => {
-    const handleTotalPrice = () => {
-      const calTotal = price * count;
-      setTotal(calTotal);
-    };
-
-    handleTotalPrice();
-  }, [count]);
-
-  const handleCount = (sign) => {
-    switch (sign) {
-      case "+":
-        setCount((prevState) => prevState + 1);
-        break;
-
-      case "-":
-        if (count > 1) {
-          setCount((prevState) => prevState - 1);
-        }
-        break;
-
-      default:
-        setCount(count);
-        break;
-    }
-  };
 
   return (
-    <ScrollView
+    <SafeAreaView
       style={[styles.safeArea, { backgroundColor: COLORS.light.white }]}
     >
       <FocusedStatusBar
@@ -50,85 +25,55 @@ const Cart = () => {
         barStyle={"dark-content"}
       />
 
-      <View style={styles.container}>
-        <View style={{ width: 35 }}>
-          <AntDesign
-            name="left"
-            size={24}
-            color="black"
-            onPress={() => navigation.goBack()}
-          />
-        </View>
+      <View style={[styles.container, { flex: 1 }]}>
+        <View style={[styles.rowGap, { marginBottom: 16 }]}>
+          <Pressable onPress={() => navigation.navigate("Home")}>
+            <Image source={require("../assets/images/menu.png")} />
+          </Pressable>
 
-        <View style={{ paddingVertical: 30, width: "100%" }}>
+          <Text style={[styles.bigText, { color: "black" }]}>Cart</Text>
           <Image
-            source={require("../assets/images/chickenricebowl.png")}
-            style={{ width: "100%", borderRadius: 10 }}
+            style={styles.profilePic}
+            source={require("../assets/images/unsplash_gqX0rPCmdiU.png")}
           />
         </View>
 
-        <Text>Chiken Rice Bowl </Text>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View
+            style={{
+              flexDirection: "row",
+              flexWrap: "wrap",
+              gap: 5,
+              justifyContent: "space-between",
+              height: "auto",
+            }}
+          >
+            {cart?.map((items) => (
+              <CartCards key={items.id} items={items} setTotal={setTotal} />
+            ))}
+          </View>
+        </ScrollView>
+        <View style={{ flexDirection: "row", gap: 10 }}>
+          <View style={{ width: "40%" }}>
+            <Button
+              buttonColor={COLORS.light.primary}
+              textColor={COLORS.light.white}
+              buttonText={`Total: $${total}`}
+              onPress={() => {}}
+            />
+          </View>
 
-        <View
-          style={{
-            justifyContent: "space-between",
-            flexDirection: "row",
-            paddingVertical: 40,
-          }}
-        >
-          <Text style={styles.bigText2}>$15.00</Text>
-
-          <View style={styles.moneyCon}>
-            <Pressable onPress={() => handleCount("-")}>
-              <Image source={require("../assets/images/minus.png")} />
-            </Pressable>
-
-            <View style={styles.numberCon}>
-              <Text>{count}</Text>
-            </View>
-
-            <Pressable onPress={() => handleCount("+")}>
-              <Image source={require("../assets/images/plus.png")} />
-            </Pressable>
+          <View style={{ width: "60%" }}>
+            <Button
+              buttonColor={COLORS.light.primary}
+              textColor={COLORS.light.white}
+              buttonText={"Proceed to Checkout"}
+              onPress={() => navigation.navigate("Checkout", { total: total })}
+            />
           </View>
         </View>
-
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-            paddingBottom: 30,
-          }}
-        >
-          <Text style={styles.mediumText2}>Total</Text>
-
-          <Text style={styles.mediumText2}>${total}</Text>
-        </View>
-
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-            paddingBottom: 70,
-          }}
-        >
-          <Text style={styles.mediumText2}>Delivery to Czar:</Text>
-
-          <View style={styles.deliveryCon}>
-            <Text>
-              Lorem ipsum dolor sit amet, consectetur, somewhere in Lagos.
-            </Text>
-          </View>
-        </View>
-
-        <Button
-          buttonColor={COLORS.light.success}
-          textColor={COLORS.light.white}
-          buttonText={"Checkout"}
-          onPress={() => navigation.navigate("Checkout")}
-        />
       </View>
-    </ScrollView>
+    </SafeAreaView>
   );
 };
 

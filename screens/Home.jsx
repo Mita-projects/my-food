@@ -1,5 +1,5 @@
 import { View, Text, Image, ScrollView, Pressable } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import FocusedStatusBar from "../constants/StatusBar";
 import { styles } from "../constants/styles";
@@ -19,54 +19,55 @@ const menuData = [
     id: 1,
     img: "https://www.verywellfit.com/thmb/BrdrHtuMT1hNWP8s0EZIZ36UrdY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/summermeals-150b10ac132446b1becac4a463ee6a25.jpg",
     meal: "Chicken Rice Brawl",
-    price: "$10.00",
+    price: 10.00,
   },
   {
     id: 2,
     img: "https://ichef.bbci.co.uk/food/ic/food_16x9_832/recipes/roast_chicken_for_one_41998_16x9.jpg",
     meal: "Grilled Chicken",
-    price: "$15.00",
+    price: 15.00,
   },
   {
     id: 3,
     img: "https://wtop.com/wp-content/uploads/2022/08/080422_mighty-Meals.jpg",
     meal: "Barbeque",
-    price: "$9.00",
+    price: 20.00,
   },
   {
     id: 4,
     img: "https://wtop.com/wp-content/uploads/2022/08/080422_mighty-Meals.jpg",
     meal: "Egusi",
-    price: "$3.00",
+    price: 30,
   },
   {
     id: 5,
     img: "https://wtop.com/wp-content/uploads/2022/08/080422_mighty-Meals.jpg",
     meal: "Egusi",
-    price: "$3.00",
+    price: 30,
   },
   {
     id: 6,
     img: "https://wtop.com/wp-content/uploads/2022/08/080422_mighty-Meals.jpg",
     meal: "Egusi",
-    price: "$3.00",
+    price: 30,
   },
   {
     id: 7,
     img: "https://wtop.com/wp-content/uploads/2022/08/080422_mighty-Meals.jpg",
     meal: "Egusi",
-    price: "$3.00",
+    price: 30,
   },
   {
     id: 8,
     img: "https://wtop.com/wp-content/uploads/2022/08/080422_mighty-Meals.jpg",
     meal: "Egusi",
-    price: "$3.00",
+    price: 30,
   },
 ];
 
 const Home = () => {
   const { currentUser } = useSelector((state) => state.user);
+  
 
   const navigation = useNavigation();
 
@@ -114,28 +115,14 @@ const Home = () => {
           </Pressable>
         </View>
 
-        <View
-          style={{
-            paddingTop: 20,
-            paddingBottom: 10,
-            alignItems: "center",
-            flexDirection: "row",
-          }}
-        >
+        <View style={styles.inputCon}>
           <Input
             backgroundColor={COLORS.light.white}
             borderColor={"black"}
             borderWidth={1}
             placeholder={"Search..."}
           />
-          <View
-            style={{
-              right: 30,
-              zIndex: 1,
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
+          <View style={styles.searchCon}>
             <Ionicons name="search" size={24} color="black" />
           </View>
         </View>
@@ -148,17 +135,12 @@ const Home = () => {
         </View>
 
         <ScrollView showsVerticalScrollIndicator={false}>
-          <View
-            style={{
-              flexDirection: "row",
-              flexWrap: "wrap",
-              gap: 5,
-              justifyContent: "space-between",
-              height: "auto",
-            }}
-          >
+          <View style={styles.menucardCon}>
             {menuData.map((item) => (
-              <MenuCard key={item.id} item={item} />
+              <MenuCard
+                key={item.id}
+                items={item}
+              />
             ))}
           </View>
         </ScrollView>
