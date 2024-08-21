@@ -1,5 +1,8 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import { COLORS } from "./Colors";
+
+const itemWidth = Dimensions.get('window').width;
+const itemHeight = Dimensions.get('window').height;
 
 export const styles = StyleSheet.create({
   safeArea: { flex: 1 },
@@ -44,7 +47,7 @@ export const styles = StyleSheet.create({
 
   mediumText2: { fontSize: 18, fontWeight: "600", color: COLORS.light.black },
 
-  bigText: { fontSize: 24, fontWeight: "800", color: COLORS.light.white },
+  bigText: { fontSize: itemWidth * 0.055, fontWeight: "800", color: COLORS.light.white },
 
   bigText2: { fontSize: 24, fontWeight: "800", color: COLORS.light.primary },
 
@@ -133,8 +136,8 @@ export const styles = StyleSheet.create({
   },
   
   foodMenu: {
-    width: 150,
-    height: 210,
+    width: itemWidth * 0.44,
+    height: itemHeight * 0.27,
     borderRadius: 20,
     borderColor: "#EEEEEE",
     borderWidth: 2,
