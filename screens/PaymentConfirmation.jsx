@@ -69,8 +69,6 @@ const PaymentConfirmation = () => {
             />
             <Text style={{ paddingHorizontal: 15 }}>Quickteller</Text>
           </View>
-
-          <AntDesign name="down" size={20} color="black" />
         </Pressable>
 
         <View style={styles.line}></View>
@@ -91,8 +89,6 @@ const PaymentConfirmation = () => {
 
             <Text style={{ paddingHorizontal: 15 }}>Credit/Debit card</Text>
           </View>
-
-          <AntDesign name="up" size={20} color="black" />
         </Pressable>
 
         <View style={styles.payConText}>
@@ -136,7 +132,6 @@ const PaymentConfirmation = () => {
             <Text style={{ paddingHorizontal: 10 }}>Not Banking</Text>
           </View>
 
-          <AntDesign name="down" size={20} color="black" />
         </Pressable>
 
         <View style={{ paddingVertical: 70 }}>

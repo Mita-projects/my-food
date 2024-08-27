@@ -136,7 +136,7 @@ export const styles = StyleSheet.create({
   },
   
   foodMenu: {
-    width: itemWidth * 0.44,
+    width: itemWidth * 0.42,
     height: itemHeight * 0.27,
     borderRadius: 20,
     borderColor: "#EEEEEE",
@@ -332,6 +332,16 @@ export const styles = StyleSheet.create({
   priceCon: {
     height: 40,
     width: 100,
+    borderWidth: 1,
+    borderRadius: 8,
+    borderBlockColor: "#FFA500",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  priceCon1: {
+    height: 40,
+    width: 130,
     borderWidth: 1,
     borderRadius: 8,
     borderBlockColor: "#FFA500",

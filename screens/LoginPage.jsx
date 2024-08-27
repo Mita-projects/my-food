@@ -42,18 +42,7 @@ const LoginPage = () => {
           />
         </View>
 
-        <Pressable
-          onPress={() => navigation.navigate("Home")}
-          style={{
-            justifyContent: "center",
-            alignItems: "center",
-            paddingVertical: 15,
-          }}
-        >
-          <Text style={{ fontSize: 14 }}>Continue without Login</Text>
-        </Pressable>
-
-        <View style={{ flexDirection: "row", width: "100%" }}>
+        <View style={{ flexDirection: "row", width: "100%"}}>
           <View style={{ flex: 1, position: "absolute", left: -20 }}>
             <Image source={require("../assets/images/tomatoesbowl.png")} />
           </View>

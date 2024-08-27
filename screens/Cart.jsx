@@ -54,13 +54,24 @@ const Cart = () => {
           </View>
         </ScrollView>
         <View style={{ flexDirection: "row", gap: 10 }}>
-          <View style={{ width: "40%" }}>
+          {/* <View style={{ width: "40%" }}>
             <Button
-              buttonColor={COLORS.light.primary}
+              buttonColor={COLORS.light.black}
               textColor={COLORS.light.white}
               buttonText={`Total: $${total}`}
               onPress={() => {}}
             />
+          </View> */}
+
+          <View style={styles.priceCon1}>
+            <Text
+              style={[
+                styles.mediumText,
+                { color: "Black", textAlign: "center" },
+              ]}
+            >
+              {`Total: $${total}`}
+            </Text>
           </View>
 
           <View style={{ width: "60%" }}>
