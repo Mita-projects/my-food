@@ -1,5 +1,5 @@
 import { View, Text, ScrollView, Pressable } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { styles } from "../constants/styles";
 import { COLORS } from "../constants/Colors";
 import FocusedStatusBar from "../constants/StatusBar";
@@ -11,12 +11,21 @@ import Button from "../widget/Button";
 
 const PaymentConfirmation = () => {
   const [selected, setSelected] = useState("");
+  const [paymentStatus, setPaymentStatus] = useState("success");
 
   const handleSelected = (value) => {
     setSelected(value);
   };
 
   const navigation = useNavigation();
+
+  useEffect(() => {
+    if (selected === 1 || selected === 2) {
+      setPaymentStatus("success");
+    } else if (selected === 3) {
+      setPaymentStatus("failed");
+    }
+  }, [selected]);
 
   return (
     <ScrollView
@@ -136,7 +145,7 @@ const PaymentConfirmation = () => {
             textColor={COLORS.light.white}
             buttonText={"SEND FOR CONFIRMATION"}
             onPress={() =>
-              navigation.navigate("YelloLoader", { status: "failed" })
+              navigation.navigate("YelloLoader", { status: paymentStatus })
             }
           />
         </View>
